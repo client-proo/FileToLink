@@ -239,8 +239,8 @@ MSG_LINKS = (
 # =====================================================================================
 
 MSG_NEW_USER = (
-    "✨ **New User Alert!** ✨\n"
-    "> 👤 **Name:** [{first_name}](tg://user?id={user_id})\n"
+    "✨ **کاربر جدید اضافه شد!** ✨\n"
+    "> 👤 **نام کاربر:** [{first_name}](tg://user?id={user_id})\n"
     "> 🆔 **User ID:** `{user_id}`\n\n"
 )
 MSG_COMMUNITY_CHANNEL = "📢 **{channel_title}:** 🔒 Join this channel to use the bot."
