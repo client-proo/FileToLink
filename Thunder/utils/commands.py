@@ -6,24 +6,25 @@ from Thunder.vars import Var
 
 def get_commands():
     command_descriptions = {
-        "start": "Start the bot and get a welcome message",
-        "link": "(Group) Generate a direct link for a file or batch",
-        "dc": "Retrieve the data center (DC) information of a user or file",
-        "ping": "Check the bot's status and response time",
-        "about": "Get information about the bot",
-        "help": "Show help and usage instructions",
-        "status": "(Admin) View bot details and current workload",
-        "stats": "(Admin) View usage statistics and resource consumption",
-        "broadcast": "(Admin) Send a message to all users",
-        "ban": "(Admin) Ban a user",
-        "unban": "(Admin) Unban a user",
-        "log": "(Admin) Send bot logs",
-        "restart": "(Admin) Restart the bot",
-        "shell": "(Admin) Execute a shell command",
-        "users": "(Admin) Show the total number of users",
-        "authorize": "(Admin) Grant permanent access to a user",
-        "deauthorize": "(Admin) Remove permanent access from a user",
-        "listauth": "(Admin) List all authorized users"
+        "start": "ربات را راه‌اندازی کنید و پیام خوش‌آمدگویی دریافت کنید.
+",
+        "link": "(گروه) تولید یک لینک مستقیم برای یک فایل یا مجموعه‌ای از فایل‌ها",
+        "dc": "بازیابی اطلاعات مرکز داده (DC) مربوط به یک کاربر یا فایل",
+        "ping": "بررسی وضعیت ربات و سرعت پاسخ‌گویی",
+        "about": "دریافت اطلاعات درباره ربات",
+        "help": "نمایش راهنما و دستورالعمل‌های استفاده",
+        "status": "مشاهده جزئیات ربات و میزان بار کاری فعلی",
+        "stats": "(مدیر) مشاهده آمار کارکرد و میزان مصرف منابع",
+        "broadcast": "(مدیر) ارسال پیام به تمام کاربران",
+        "ban": "(مدیر) مسدود کردن یک کاربر",
+        "unban": "(مدیر) رفع مسدودیت یک کاربر",
+        "log": "(مدیر) ارسال گزارش‌های ربات",
+        "restart": "(مدیر) راه‌اندازی مجدد ربات",
+        "shell": "(مدیر) اجرای دستور Shell",
+        "users": "(مدیر) نمایش تعداد کل کاربران",
+        "authorize": "(مدیر) اعطای دسترسی دائمی به یک کاربر",
+        "deauthorize": "(مدیر) لغو دسترسی دائمی یک کاربر",
+        "listauth": "(مدیر) فهرست تمام کاربران مجاز"
     }
     return [BotCommand(name, desc) for name, desc in command_descriptions.items()]
 
