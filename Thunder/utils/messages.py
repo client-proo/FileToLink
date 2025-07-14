@@ -129,9 +129,9 @@ MSG_BUTTON_CANCEL_BROADCAST = "🛑 لغو پیام همگانی"
 MSG_BUTTON_VIEW_PROFILE = "👤 مشاهده پروفایل کاربر"
 MSG_BUTTON_ABOUT = "ℹ️ درباره ربات"
 MSG_BUTTON_JOIN_CHANNEL = "📢 Join {channel_title}"
-MSG_BUTTON_GITHUB = "🛠️ GitHub"
+MSG_BUTTON_GITHUB = "🧑‍💻 پشتیبانی"
 MSG_BUTTON_START_CHAT = "📩 Start Chat"
-MSG_BUTTON_CLOSE = "✖ Close"
+MSG_BUTTON_CLOSE = "✖ بستن"
 
 
 # =====================================================================================
