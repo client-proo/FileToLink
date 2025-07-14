@@ -227,11 +227,11 @@ MSG_DC_UNKNOWN = "Unknown"
 MSG_DM_SINGLE_PREFIX = "📬 **From {chat_title}**\n"
 MSG_LINKS = (
     "✨ **Your Links are Ready!** ✨\n\n"
-    "> `{file_name}`\n\n"
-    "📂 **File Size:** `{file_size}`\n\n"
-    "🚀 **Download Link:**\n`{download_link}`\n\n"
-    "🖥️ **Stream Link:**\n`{stream_link}`\n\n"
-    "⌛️ **Note: Links remain active while the bot is running and the file is accessible.**"
+    "📂 **نام فایل:** `{file_name}`\n\n"
+    "📦 **حجم فایل:** `{file_size}`\n\n"
+    "📥 **لینک دانلود:**\n`{download_link}`\n\n"
+    "🖥️ **پخش آنلاین:**\n`{stream_link}`\n\n"
+    "⌛️ **توجه : لینک شما پس از 24 ساعت منقضی خواهد شد.**"
 )
 
 # =====================================================================================
