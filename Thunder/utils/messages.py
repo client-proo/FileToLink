@@ -241,7 +241,7 @@ MSG_LINKS = (
 MSG_NEW_USER = (
     "✨ **کاربر جدید اضافه شد!** ✨\n"
     "> 👤 **نام کاربر:** [{first_name}](tg://user?id={user_id})\n"
-    "> 🆔 **آیدی کاربر:** `{user_id}`\n\n"
+    "> 🆔 **شناسه کاربر:** `{user_id}`\n\n"
 )
 MSG_COMMUNITY_CHANNEL = "📢 **{channel_title}:** 🔒 Join this channel to use the bot."
 
@@ -255,7 +255,7 @@ MSG_PROCESSING_FILE = "⏳ **Processing your file...**"
 MSG_DEFAULT_FILENAME = "Untitled File"
 MSG_NEW_FILE_REQUEST = (
     "> 👤 **نام کاربر:** [{source_info}](tg://user?id={id_})\n"
-    "> 🆔 **آیدی کاربر:** `{id_}`\n\n"
+    "> 🆔 **شناسه کاربر:** `{id_}`\n\n"
     "📥 **لینک دانلود:** `{online_link}`\n\n"
     "🖥️ **پخش آنلاین:** `{stream_link}`"
 )
