@@ -226,7 +226,7 @@ MSG_DC_UNKNOWN = "Unknown"
 # ------ File Link Generation ------
 MSG_DM_SINGLE_PREFIX = "📬 **From {chat_title}**\n"
 MSG_LINKS = (
-    "✨ **Your Links are Ready!** ✨\n\n"
+    "<i><b><u>لـیـنـک فـایـل شـمـا سـاخـتـه شـد ✅ !</u><b></i>\n\n"
     "📂 **نام فایل:** `{file_name}`\n\n"
     "📦 **حجم فایل:** `{file_size}`\n\n"
     "📥 **لینک دانلود:**\n`{download_link}`\n\n"
@@ -241,7 +241,7 @@ MSG_LINKS = (
 MSG_NEW_USER = (
     "✨ **کاربر جدید اضافه شد!** ✨\n"
     "> 👤 **نام کاربر:** [{first_name}](tg://user?id={user_id})\n"
-    "> 🆔 **User ID:** `{user_id}`\n\n"
+    "> 🆔 **آیدی کاربر:** `{user_id}`\n\n"
 )
 MSG_COMMUNITY_CHANNEL = "📢 **{channel_title}:** 🔒 Join this channel to use the bot."
 
