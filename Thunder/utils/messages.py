@@ -207,10 +207,10 @@ MSG_PING_RESPONSE = (
 
 # ------ DC Info ------
 MSG_DC_USER_INFO = (
-    "📍 **Information**\n"
-    "> 👤 **User:** [{user_name}](tg://user?id={user_id})\n"
-    "> 🆔 **User ID:** `{user_id}`\n"
-    "> 🌍 **DC ID:** `{dc_id}`"
+    "📍 **اطلاعات**\n"
+    "> 👤 **کاربر:** [{user_name}](tg://user?id={user_id})\n"
+    "> 🆔 **شناسه کاربر:** `{user_id}`\n"
+    "> 🌍 **شناسه دیتاسنتر:** `{dc_id}`"
 )
 
 MSG_DC_FILE_INFO = (
