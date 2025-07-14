@@ -123,11 +123,11 @@ MSG_LOG_FILE_MISSING = "⚠️ **Log File Missing:** Could not find the log file
 # =====================================================================================
 
 MSG_BUTTON_STREAM_NOW = "🖥️ پخش آنلاین"
-MSG_BUTTON_DOWNLOAD = "🚀 دانلود"
-MSG_BUTTON_GET_HELP = "📖 Get Help"
-MSG_BUTTON_CANCEL_BROADCAST = "🛑 Cancel Broadcast"
-MSG_BUTTON_VIEW_PROFILE = "👤 View User Profile"
-MSG_BUTTON_ABOUT = "ℹ️ About Bot"
+MSG_BUTTON_DOWNLOAD = "📥 دانلود"
+MSG_BUTTON_GET_HELP = "📖 دریافت راهنما"
+MSG_BUTTON_CANCEL_BROADCAST = "🛑 لغو پیام همگانی"
+MSG_BUTTON_VIEW_PROFILE = "👤 مشاهده پروفایل کاربر"
+MSG_BUTTON_ABOUT = "ℹ️ درباره ربات"
 MSG_BUTTON_JOIN_CHANNEL = "📢 Join {channel_title}"
 MSG_BUTTON_GITHUB = "🛠️ GitHub"
 MSG_BUTTON_START_CHAT = "📩 Start Chat"
@@ -256,7 +256,7 @@ MSG_DEFAULT_FILENAME = "Untitled File"
 MSG_NEW_FILE_REQUEST = (
     "> 👤 **نام کاربر:** [{source_info}](tg://user?id={id_})\n"
     "> 🆔 **آیدی کاربر:** `{id_}`\n\n"
-    "🚀 **لینک دانلود:** `{online_link}`\n\n"
+    "📥 **لینک دانلود:** `{online_link}`\n\n"
     "🖥️ **پخش آنلاین:** `{stream_link}`"
 )
 
