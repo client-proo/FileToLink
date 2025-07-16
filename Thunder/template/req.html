@@ -49,9 +49,17 @@
         </header>
 
         <main id="main-content" role="main" aria-label="Main content">
-            <div class="container">
-        <tag src="%s" class="player"></tag>
-    </div>
+            <div class="file-meta"></div>
+            </div>
+        </header>
+
+        <main id="main-content" role="main" aria-label="Main content">
+            <div class="player-container">
+                <{{ tag }} id="player" playsinline controls preload="metadata" controlsList="nodownload">
+                <source src="{{ src }}" type="{{ video }}/mp4">
+                    Your browser does not support the {{ tag }} tag.
+                </{{ tag }}>
+            </div>
 
             <section class="controls-section" aria-label="File options">
                 <div class="dropdown-container" id="stream-dropdown-container">
