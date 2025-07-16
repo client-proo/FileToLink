@@ -44,9 +44,14 @@
         </header>
 
         <main id="main-content" role="main" aria-label="Main content">
+            <div class="file-meta"></div>
+            </div>
+        </header>
+
+        <main id="main-content" role="main" aria-label="Main content">
             <div class="player-container">
                 <{{ tag }} id="player" playsinline controls preload="metadata" controlsList="nodownload">
-                <source src="{{ src }}" type="video/mp4">
+                <source src="{{ src }}" type="{{ tag }}/mp4">
                     Your browser does not support the {{ tag }} tag.
                 </{{ tag }}>
             </div>
