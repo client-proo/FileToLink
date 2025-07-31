@@ -6,8 +6,6 @@ from typing import Any, Optional
 from pyrogram.client import Client
 from pyrogram.file_id import FileId
 from pyrogram.types import Message
-import uuid
-import hashlib
 
 from Thunder.server.exceptions import FileNotFound
 from Thunder.utils.handler import handle_flood_wait
