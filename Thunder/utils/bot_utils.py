@@ -64,9 +64,9 @@ async def gen_links(fwd_msg: Message, shortener: bool = True) -> Dict[str, str]:
     m_size_hr = humanbytes(get_fsize(fwd_msg))
     enc_fname = quote(m_name)
     f_hash = get_hash(fwd_msg)
-    slink = f"{base_url}/watch/{f_hash}"
-    olink = f"{base_url}/dl/{f_hash}"
-    
+    slink = f"{base_url}/watch/{f_hash}{fid}/{enc_fname}"
+    olink = f"{base_url}/{f_hash}{fid}/{enc_fname}"
+
     if shortener and getattr(Var, "SHORTEN_MEDIA_LINKS", False):
         try:
             s_results = await asyncio.gather(shorten(slink), shorten(olink), return_exceptions=True)
@@ -80,7 +80,7 @@ async def gen_links(fwd_msg: Message, shortener: bool = True) -> Dict[str, str]:
                 logger.warning(f"Failed to shorten online_link: {s_results[1]}")
         except Exception as e:
             logger.error(f"Error during link shortening: {e}")
-    
+
     return {"stream_link": slink, "online_link": olink, "media_name": m_name, "media_size": m_size_hr}
 
 
