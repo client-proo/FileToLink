@@ -17,7 +17,7 @@ from Thunder.utils.time_format import get_readable_time
 
 routes = web.RouteTableDef()
 
-SECURE_HASH_LENGTH = 6
+SECURE_HASH_LENGTH = 28
 CHUNK_SIZE = 1024 * 1024
 MAX_CONCURRENT_PER_CLIENT = 8
 RANGE_REGEX = re.compile(r"bytes=(?P<start>\d*)-(?P<end>\d*)")
