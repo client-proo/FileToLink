@@ -29,7 +29,6 @@ def get_uniqid(message: Message) -> Optional[str]:
     return getattr(media, 'file_unique_id', None)
 
 
-
 def get_hash(media_msg: Message) -> str:
     raw = f"{media_msg.id}-{uuid.uuid4().hex}"
     return hashlib.sha256(raw.encode()).hexdigest()[:6]
