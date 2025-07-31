@@ -6,6 +6,8 @@ from typing import Any, Optional
 from pyrogram.client import Client
 from pyrogram.file_id import FileId
 from pyrogram.types import Message
+import uuid
+import hashlib
 
 from Thunder.server.exceptions import FileNotFound
 from Thunder.utils.handler import handle_flood_wait
@@ -28,8 +30,8 @@ def get_uniqid(message: Message) -> Optional[str]:
 
 
 def get_hash(media_msg: Message) -> str:
-    uniq_id = get_uniqid(media_msg)
-    return uniq_id[:6] if uniq_id else '' 
+    raw = f"{media_msg.id}-{uuid.uuid4().hex}"
+    return hashlib.sha256(raw.encode()).hexdigest()[:6] 
 
 
 def get_fsize(message: Message) -> int:
