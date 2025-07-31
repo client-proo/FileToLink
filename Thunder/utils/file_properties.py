@@ -30,8 +30,8 @@ def get_uniqid(message: Message) -> Optional[str]:
 
 
 def get_hash(media_msg: Message) -> str:
-    raw = f"{media_msg.id}-{uuid.uuid4().hex}"
-    return hashlib.sha256(raw.encode()).hexdigest()[:28] 
+    uniq_id = get_uniqid(media_msg)
+    return uniq_id[:28] if uniq_id else '' 
 
 
 def get_fsize(message: Message) -> int:
