@@ -1,3 +1,57 @@
+# Thunder/utils/bot_utils.py
+
+import asyncio
+from typing import Any, Callable, Dict, Optional
+from urllib.parse import quote
+
+from pyrogram import Client
+from pyrogram.enums import ChatMemberStatus
+from pyrogram.errors import FloodWait
+from pyrogram.types import (InlineKeyboardButton, InlineKeyboardMarkup,
+                            LinkPreviewOptions, Message, User)
+
+from Thunder.utils.database import db
+from Thunder.utils.file_properties import get_fname, get_fsize, get_hash
+from Thunder.utils.handler import handle_flood_wait
+from Thunder.utils.human_readable import humanbytes
+from Thunder.utils.logger import logger
+from Thunder.utils.messages import (MSG_BUTTON_GET_HELP, MSG_DC_UNKNOWN,
+                                    MSG_DC_USER_INFO, MSG_NEW_USER)
+from Thunder.utils.shortener import shorten
+from Thunder.vars import Var
+
+
+
+async def notify_ch(cli: Client, txt: str):
+    if not (hasattr(Var, 'BIN_CHANNEL') and isinstance(Var.BIN_CHANNEL, int) and Var.BIN_CHANNEL != 0):
+        return
+    await handle_flood_wait(cli.send_message, chat_id=Var.BIN_CHANNEL, text=txt)
+
+
+async def notify_own(cli: Client, txt: str):
+    o_ids = Var.OWNER_ID if isinstance(Var.OWNER_ID, (list, tuple, set)) else [Var.OWNER_ID]
+    tasks = [handle_flood_wait(cli.send_message, chat_id=oid, text=txt) for oid in o_ids]
+    if hasattr(Var, 'BIN_CHANNEL') and isinstance(Var.BIN_CHANNEL, int) and Var.BIN_CHANNEL != 0:
+        tasks.append(handle_flood_wait(cli.send_message, chat_id=Var.BIN_CHANNEL, text=txt))
+    await asyncio.gather(*tasks, return_exceptions=True)
+
+
+async def reply_user_err(msg: Message, err_txt: str):
+    await handle_flood_wait(
+        msg.reply_text,
+        text=err_txt,
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(MSG_BUTTON_GET_HELP, callback_data="help_command")]]),
+        link_preview_options=LinkPreviewOptions(is_disabled=True)
+    )
+
+
+async def log_newusr(cli: Client, uid: int, fname: str):
+    try:
+        if await db.is_user_exist(uid):
+            return
+        await db.add_user(uid)
+        if hasattr(Var, 'BIN_CHANNEL') and isinstance(Var.BIN_CHANNEL, int) and Var.BIN_CHANNEL != 0:
+            await handle_flood_wait(cli.send_message, chat_id=Var.BIN_CHANNEL, text=MSG_NEW_USER.format(first_name=fname, user_id=uid))
     except Exception as e:
         logger.error(f"Database error in log_newusr for user {uid}: {e}")
 
@@ -11,7 +65,7 @@ async def gen_links(fwd_msg: Message, shortener: bool = True) -> Dict[str, str]:
     enc_fname = quote(m_name)
     f_hash = get_hash(fwd_msg)
     slink = f"{base_url}/watch/{f_hash}{fid}/{enc_fname}"
-    olink = f"{base_url}/dl/{f_hash}{fid}/{enc_fname}"
+    olink = f"{base_url}/{f_hash}{fid}/{enc_fname}"
 
     if shortener and getattr(Var, "SHORTEN_MEDIA_LINKS", False):
         try:
