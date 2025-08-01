@@ -30,8 +30,10 @@ def get_uniqid(message: Message) -> Optional[str]:
 
 
 def get_hash(media_msg: Message) -> str:
-    raw = f"{media_msg.id}-{uuid.uuid4().hex}"
-    return hashlib.sha256(raw.encode()).hexdigest()[:6] 
+    raw = f"{media_msg.id}-{get_uniqid(media_msg)}"
+    namespace = uuid.UUID("893f4d3a-acf7-4561-b134-1e713cf415af")
+    u = uuid.uuid5(namespace, raw)
+    return u.hex[:6]
 
 
 def get_fsize(message: Message) -> int:
