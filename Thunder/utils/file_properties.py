@@ -30,9 +30,11 @@ def get_uniqid(message: Message) -> Optional[str]:
 
 
 def get_hash(media_msg: Message) -> str:
-    raw = f"{media_msg.id}-{get_uniqid(media_msg)}"
+    uniq_id = get_uniqid(media_msg)
+    if not uniq_id:
+        return "000000"
     namespace = uuid.UUID("893f4d3a-acf7-4561-b134-1e713cf415af")
-    u = uuid.uuid5(namespace, raw)
+    u = uuid.uuid5(namespace, uniq_id)
     return u.hex[:6]
 
 
