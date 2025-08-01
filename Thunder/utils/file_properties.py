@@ -31,7 +31,7 @@ def get_uniqid(message: Message) -> Optional[str]:
 
 def get_hash(media_msg: Message) -> str:
     raw = f"{media_msg.id}-{uuid.uuid4().hex}"
-    return hashlib.sha256(raw.encode()).hexdigest()[:32]
+    return hashlib.sha256(raw.encode()).hexdigest()[:28] 
 
 
 def get_fsize(message: Message) -> int:
@@ -52,17 +52,17 @@ def parse_fid(message: Message) -> Optional[FileId]:
 def get_fname(msg: Message) -> str:
     media = get_media(msg)
     fname = None
-    
+
     if media:
         fname = getattr(media, 'file_name', None)
-    
+
     if not fname:
         media_type_str = "unknown_media"
         if msg.media:
             media_type_value = msg.media.value
             if media_type_value:
                 media_type_str = str(media_type_value)
-        
+
         ext = "bin"
         if media and hasattr(media, '_file_type'):
             file_type = media._file_type
@@ -80,25 +80,25 @@ def get_fname(msg: Message) -> str:
                 ext = "bin"
         timestamp = dt.now().strftime("%Y%m%d%H%M%S")
         fname = f"Thunder File To Link_{timestamp}.{ext}"
-    
+
     return fname
 
 
 async def get_fids(client: Client, chat_id: int, message_id: int) -> FileId:
     try:
         msg = await handle_flood_wait(client.get_messages, chat_id, message_id)
-        
+
         if not msg or getattr(msg, 'empty', False):
             raise FileNotFound("Message not found")
-        
+
         media = get_media(msg)
         if media:
             if not hasattr(media, 'file_id') or not hasattr(media, 'file_unique_id'):
                 raise FileNotFound("Media metadata incomplete")
             return FileId.decode(media.file_id)
-        
+
         raise FileNotFound("No media in message")
-        
+
     except Exception as e:
         logger.error(f"Error in get_fids: {e}", exc_info=True)
         raise FileNotFound(str(e))
