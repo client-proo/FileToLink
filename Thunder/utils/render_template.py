@@ -29,7 +29,7 @@ async def render_page(id: int, secure_hash: str, requested_action: str | None = 
         file_unique_id = get_uniqid(message)
         file_name = get_fname(message)
         
-        if not file_unique_id or file_unique_id[:6] != secure_hash:
+        if not file_unique_id or file_unique_id[:32] != secure_hash:
             raise InvalidHash
         
         quoted_filename = urllib.parse.quote(file_name.replace('/', '_'))
